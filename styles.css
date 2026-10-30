@@ -1,0 +1,187 @@
+/* 
+   THE DINNER PARTY
+   One style for every page. Each room's look comes from its scene image.
+*/
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+
+  padding: 0;
+}
+
+body{
+  display: flex;
+
+  flex-direction: column;
+  min-height: 100vh;
+  background: #1c1819;
+  color: #e9e4e2;
+  font-family: "Karla", system-ui, sans-serif;
+
+  font-size: 1.1rem;
+  line-height: 1.65;
+}
+
+a{
+  color: inherit;
+}
+
+:focus-visible{
+  outline: 2px solid #e9e4e2;
+  outline-offset: 3px;
+}
+
+h1{
+  margin-bottom: 1.25rem;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(2.4rem, 8vw, 4.2rem);
+  font-weight: 600;
+  line-height: 1.08;
+}
+
+p{
+  margin-bottom: 1.1rem;
+}
+
+
+/* menu nav bar */
+
+.menu{
+  display: flex;
+  flex-wrap: wrap;
+
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+
+  padding: 1rem 2rem;
+  background: #141112;
+  border-bottom: 1px solid #3a3234;
+}
+
+
+.thename{
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.25rem;
+
+  text-decoration: none;
+}
+
+.menu ul{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  list-style: none;
+}
+
+.menu ul a{
+  padding: 0.2rem 0;
+  color: #b3aaa8;
+  text-decoration: none;
+
+  border-bottom: 2px solid transparent;
+}
+
+.menu ul a:hover{
+  color: #e9e4e2;
+}
+
+/* the page you are currently on */
+
+.menu ul a.active{
+
+  color: #e9e4e2;
+  border-bottom-color: #8f2d38;
+}
+
+/* main content */
+main{
+  flex: 1;
+  width: 100%;
+  max-width: 46rem;
+
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+
+/* welcome page and animation for the text */
+.welcome{
+  padding-top: 6rem;
+  text-align: center;
+}
+
+.welcome .lead{
+  max-width: 30rem;
+  margin: 0 auto 2.5rem;
+
+  color: #b3aaa8;
+}
+
+.welcome h1{
+  animation: settle 1.4s ease-out both;
+}
+
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+/* buttons */
+.button{
+  display: inline-block;
+  padding: 0.75rem 1.6rem;
+  font: inherit;
+  color: #f3ebe8;
+
+  text-decoration: none;
+  background: #8f2d38;
+
+  border: 1px solid #8f2d38;
+  border-radius: 999px;
+  cursor: pointer;
+
+}
+
+
+
+
+/* room pages*/
+.scene{
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  margin: 2rem 0;
+  padding: 1rem;
+  color: #b3aaa8;
+  font-style: italic;
+  text-align: center;
+  background: #141112;
+  border: 1px solid #3a3234;
+}
+
+/* when you add a scene image, it fills the box */
+.scene img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* footer */
+
+footer {
+  padding: 1.25rem 2rem;
+  color: #b3aaa8;
+  font-size: 0.95rem;
+  text-align: center;
+  background: #141112;
+  border-top: 1px solid #3a3234;
+}
