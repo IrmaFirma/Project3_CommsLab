@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Staircase of The Dinner Party</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Karla:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="staircase">
+
+  <header class="menu">
+
+    <a class="thename" href="index.html">The Dinner Party</a>
+
+    <nav><ul>
+      <li><a href="index.html">Welcome</a></li>
+      <li><a href="front-door.html">Front door</a></li>
+      <li><a href="living-room.html">Living room</a></li>
+      <li><a href="hallway.html">Hallway</a></li>
+      <li><a href="kitchen.html">Kitchen</a></li>
+      <li><a href="staircase.html" class="active">Staircase</a></li>
+      <li><a href="upstairs-hall.html">Upstairs hallway</a></li>
+      <li><a href="bedroom.html">Bedroom</a></li>
+    </ul></nav>
+
+  </header>
+
+  <main>
+    <h1>Staircase</h1>
+
+    <p>The stairs are old and the house is getting colder.</p>
+
+    <!-- scene: the bulb keeps flickering between the lit stairs and the dark stairs -->
+    <div class="scene flicker-scene">
+      <img id="photo-stairs" src="assets/7.PNG" alt="A staircase lit by a single bulb">
+      <img id="photo-stairs-dark" src="assets/8.jpg" alt="The same staircase, almost dark" hidden>
+    </div>
+
+    <p id="room-message">One bulb lights the way up. It does not stay on.</p>
+
+    <!-- sounds: eerie music underneath, the light flickers, and whispers (low and layered) -->
+    <audio id="music-sound" src="audio/eerie-background-music.mp3" loop></audio>
+    <audio id="flicker-sound" src="audio/flicker-light.mp3" loop></audio>
+    <!-- TODO: whispers recording still missing (2-3 voices, panned left and right) -->
+    <audio id="whisper-sound" src="audio/whispers.mp3"></audio>
+
+    <div class="controls">
+      <button id="climb-button" class="button" type="button">Climb the stairs</button>
+      <a id="next-button" class="button" href="upstairs-hall.html" hidden>Go to the upstairs hallway</a>
+    </div>
+
+  </main>
+  <footer>Made by Jayden, Mariam and Irma @NYUAD.</footer>
+
+  <script src="staircase.js"></script>
+
+</body>
+
+</html>
