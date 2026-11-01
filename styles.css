@@ -222,6 +222,14 @@ footer {
 
 
 
+/* add background image on welcome page */
+body.welcome-page{
+  background-image: linear-gradient(rgba(20, 17, 18, 0.6), rgba(20, 17, 18, 0.6)), url("assets/index-back.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
 
 
 
