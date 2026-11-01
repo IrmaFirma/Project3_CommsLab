@@ -35,12 +35,23 @@
   <main class="welcome">
     <h1>Oh you made it!</h1>
     <p class="lead">Tonight's party has a few too many secrets. Walk through the house, listen closely, and notice what changes. Headphones recommended.</p>
-    <a class="button" href="front-door.html">Come in</a>
+
+    <!-- TODO: welcome sound still missing so have to record that -->
+    <!-- welcome message: plays when you click, then the Come in button shows up -->
+    <audio id="welcome-sound" src="audio/welcome.mp3"></audio>
+
+    <div class="controls">
+      <button id="listen-button" class="button" type="button">Listen to the welcome message</button>
+
+      <a id="enter-button" class="button" href="front-door.html" hidden>Come in</a>
+    
+    </div>
   </main>
 
 
   <footer>Made by Jayden, Mariam and Irma @NYUAD.</footer>
 
+  <script src="welcome.js"></script>
 
 </body>
 </html>
