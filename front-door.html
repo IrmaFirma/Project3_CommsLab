@@ -30,21 +30,36 @@
 
   </header>
 
-  <!-- sound notes: Doorbell, door opening, the cheerful couple: "You made it! Come in, come in!" The wife's last line is a beat too slow and slightly flat. -->
-  <!-- visual notes: Warm, bright, pastel. Both smiling, but her smile is a little too weird. -->
-
   <main>
     <h1>Front door</h1>
 
     <p>A doorbell, a warm hello, and a couple who are very glad you came.</p>
-    <div class="scene">Image background: Warm, bright, pastel. Both smiling, but her smile is a little too weird.</div>
 
-    <!-- audio placeholder for front door and buttons to play and then instructions to go to living room -->
+    <!-- scene: photo 1 first, then photo 2 after you ring the doorbell -->
+    <div class="scene">
+      <img id="photo-before" src="assets/1.JPG">
+      <img id="photo-after" src="assets/2.JPG" hidden>
+    </div>
+
+    <p id="door-message">You are standing at the door. Ring the bell.</p>
+
+    <!-- sounds (play when you click the buttons) -->
+    <audio id="doorbell-sound" src="audio/doorbell.mp3"></audio>
+
+    <!-- TODO <audio id="come-in-sound" src="audio/come-in.mp3"></audio> -->
+
+    <!-- buttons: only one shows at a time -->
+    <div class="controls">
+      <button id="ring-button" class="button" type="button">Ring the doorbell</button>
+      <button id="come-in-button" class="button" type="button" hidden>Play the greeting</button>
+      <a id="next-button" class="button" href="living-room.html" hidden>Go to the living room</a>
+    </div>
 
   </main>
   <footer>Made by Jayden, Mariam and Irma @NYUAD.</footer>
+
   <script src="script.js"></script>
 
-
 </body>
+
 </html>
