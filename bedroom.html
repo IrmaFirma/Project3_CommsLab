@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
 
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bedroom of The Dinner Party</title>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Karla:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-
 </head>
 
 <body class="bedroom">
@@ -24,27 +22,41 @@
       <li><a href="living-room.html">Living room</a></li>
       <li><a href="hallway.html">Hallway</a></li>
       <li><a href="kitchen.html">Kitchen</a></li>
-      <li><a href="upstairs.html">Upstairs</a></li>
-      <li><a href="bedroom-door.html">Bedroom door</a></li>
-      <li><a href="bedroom.html">Bedroom</a></li>
+      <li><a href="staircase.html">Staircase</a></li>
+      <li><a href="upstairs-hall.html">Upstairs hallway</a></li>
+      <li><a href="bedroom.html" class="active">Bedroom</a></li>
     </ul></nav>
-    
+
   </header>
-
-
-  <!-- sound notes: Low drone, one faint distant sound. -->
-  <!-- visual notes: Blood splatters on the walls and bed, drag marks across the floor leading out. -->
 
   <main>
     <h1>Bedroom</h1>
 
     <p>You push the door open.</p>
-    <div class="scene">Scene: Blood splatters on the walls and bed, drag marks across the floor leading out.</div>
 
-    <!-- audio placeholder for room audio and buttons to play and then instructions to start over as this is the last scene for now -->
+    <!-- scene: the dark room. the lit room (blood splatters and drag marks) only shows inside the flashlight circle -->
+    <div class="scene flashlight">
+      <img id="photo-dark" src="assets/11.jpg" alt="A dark bedroom with a window">
+      <img class="bright" id="photo-lit" src="assets/12.PNG" alt="A bedroom with blood splattered on the walls and bed, and marks dragged across the floor">
+    </div>
+
+    <p id="room-message">It is very dark in here.</p>
+
+    <!-- sounds: the door opens, then a low drone underneath the room -->
+    <audio id="door-sound" src="audio/door-opening.mp3"></audio>
+    <audio id="drone-sound" src="audio/low-droning.mp3" loop></audio>
+
+    <div class="controls">
+      <button id="enter-button" class="button" type="button">Step inside</button>
+      <a id="restart-button" class="button" href="index.html" hidden>Start over</a>
+    </div>
 
   </main>
   <footer>Made by Jayden, Mariam and Irma @NYUAD.</footer>
 
+  <script src="flashlight.js"></script>
+  <script src="bedroom.js"></script>
+
 </body>
+
 </html>
