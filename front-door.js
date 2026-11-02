@@ -18,8 +18,6 @@ var ringButton = document.querySelector("#ring-button");
 var nextButton = document.querySelector("#next-button");
 
 
-
-
 // click "Ring the doorbell"
 
 ringButton.addEventListener("click", function (){

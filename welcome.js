@@ -50,8 +50,6 @@ listenButton.addEventListener("click", function (){
 });
 
 
-
-
 // when the message is done: hide the listen button, show the Come in button
 function showEnterButton(){
   listenButton.hidden = true;
