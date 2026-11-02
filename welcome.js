@@ -10,7 +10,7 @@ function startBackground(){
 
   var attempt = backgroundSound.play();
 
-  
+
 
   if (attempt) {
     attempt.then(function (){
@@ -42,7 +42,7 @@ var enterButton = document.querySelector("#enter-button");
 listenButton.addEventListener("click", function (){
 
   listenButton.disabled = true;
-  listenButton.textContent = "Playing...";
+  listenButton.textContent = " ";
 
   // play the message; if the file can't play (missing or broken), show the Come in button anyway
   var playing = welcomeSound.play();
