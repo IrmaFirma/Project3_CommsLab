@@ -4,7 +4,7 @@
 var backgroundSound = document.querySelector("#background-sound");
 var soundToggle = document.querySelector("#sound-toggle");
 
-backgroundSound.volume = 0.3;
+backgroundSound.volume = 0.7;
 
 // keep the icon to match what is happening
 backgroundSound.addEventListener("play", function (){
