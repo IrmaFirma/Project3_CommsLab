@@ -180,13 +180,18 @@ main{
 }
 
 
-/* room pages*/
+/* room pages styling */
 .scene{
   display: grid;
   place-items: center;
   aspect-ratio: 16 / 9;
+  width: 92vw;
+  max-width: 75rem;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
   margin: 2rem 0;
-  padding: 1rem;
+  padding: 0;
   color: #b3aaa8;
   font-style: italic;
   text-align: center;
