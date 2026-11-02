@@ -283,3 +283,48 @@ body.welcome-page{
   position: absolute;
   inset: 0;
 }
+
+/* background music button, bottom right corner */
+
+.sound-toggle{
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  background: #8f2d38;
+  border: 1px solid #8f2d38;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
+
+.sound-toggle:hover {
+  background: #a8394a;
+  border-color: #e9e4e2;
+}
+
+.sound-toggle img{
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+
+/* show the "off" icon by default, the "on" icon while music is playing */
+.sound-toggle .icon-on{
+
+  display: none;
+}
+.sound-toggle.playing .icon-on{
+  display: block;
+}
+
+
+
+.sound-toggle.playing .icon-off{
+  display: none;
+}
