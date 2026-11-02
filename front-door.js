@@ -38,7 +38,7 @@ ringButton.addEventListener("click", function (){
 
   // play the doorbell; if the file can't play (missing or broken), carry on anyway
   var playing = doorbellSound.play();
-  if (playing) {
+  if(playing){
     playing.catch(showCouple);
 
   }
@@ -55,7 +55,7 @@ function showCouple() {
   message.textContent = " ";
 
   // stay on the black screen for 1.5 seconds, then show the couple
-  setTimeout(function () {
+  setTimeout(function (){
     blackout.hidden = true;
     photoCouple.hidden = false;
 

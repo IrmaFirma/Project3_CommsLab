@@ -1,38 +1,53 @@
 // welcome page: listen to the welcome message, then the Come in button shows up
 
-// background sound: try to autoplay, and if the browser blocks it,
-// start on the first click, tap or key press instead
+// background music: button in the corner turns it on and off
+
 var backgroundSound = document.querySelector("#background-sound");
+
+var soundToggle = document.querySelector("#sound-toggle");
 
 backgroundSound.volume = 0.3; 
 
-function startBackground(){
+// keep the icon to match what is happening
+backgroundSound.addEventListener("play", function (){
 
-  var attempt = backgroundSound.play();
+  soundToggle.classList.add("playing");
+  soundToggle.setAttribute("aria-label", "Mute background music");
 
+});
 
+backgroundSound.addEventListener("pause", function (){
 
-  if (attempt) {
-    attempt.then(function (){
-      document.removeEventListener("pointerdown", startBackground);
+  soundToggle.classList.remove("playing");
+  soundToggle.setAttribute("aria-label", "Play background music");
 
-      document.removeEventListener("keydown", startBackground);
-    }).catch(function (){
-    });
+});
 
+soundToggle.addEventListener("click", function () {
+
+  if(backgroundSound.paused){
+
+    backgroundSound.play();
+
+  }else{
+    backgroundSound.pause();
   }
+});
 
+// still try to autoplay
+//  if the browser allows it, the icon switches to "playing" by itself
+var attempt = backgroundSound.play();
 
+if (attempt){
+  attempt.catch(function (){
+    // blocked: the button is how the user starts it
+  });
 }
 
-startBackground();
 
-
-document.addEventListener("pointerdown", startBackground); 
-
-document.addEventListener("keydown", startBackground);
 
 var welcomeSound = document.querySelector("#welcome-sound");
+
 var listenButton = document.querySelector("#listen-button");
 
 var enterButton = document.querySelector("#enter-button");
@@ -47,7 +62,7 @@ listenButton.addEventListener("click", function (){
   // play the message; if the file can't play (missing or broken), show the Come in button anyway
   var playing = welcomeSound.play();
 
-  if (playing) {
+  if(playing){
     playing.catch(showEnterButton);
   }
 });
