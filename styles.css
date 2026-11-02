@@ -231,5 +231,50 @@ body.welcome-page{
 }
 
 
+/* flashlight scenes (upstairs hallway + bedroom)
+   the dark picture is the base. the bright picture sits on top of it, but a
+   mask hides everything except a circle around --x / --y, which
+   flashlight.js moves to follow the mouse or finger */
+.flashlight{
+  position: relative;
+  overflow: hidden;
+  cursor: none;
+  touch-action: none;
+  --x: 50%;
+  --y: 50%;
+  --size: 150px;
+}
+
+.flashlight img{
+  position: absolute;
+  inset: 0;
+}
+
+.flashlight img.bright{
+  -webkit-mask-image: radial-gradient(circle var(--size) at var(--x) var(--y), #000 0%, #000 55%, transparent 100%);
+  mask-image: radial-gradient(circle var(--size) at var(--x) var(--y), #000 0%, #000 55%, transparent 100%);
+}
+
+/* the hallway's dark picture isn't dark enough on its own, so it gets dimmed */
+.flashlight.dim-base img:not(.bright){
+  filter: brightness(0.2);
+}
+
+@media (max-width: 600px){
+  .flashlight{
+    --size: 100px;
+  }
+}
 
 
+/* staircase: the two pictures sit on top of each other so the flicker
+   swaps them without the box changing size */
+.flicker-scene{
+  position: relative;
+  overflow: hidden;
+}
+
+.flicker-scene img{
+  position: absolute;
+  inset: 0;
+}
