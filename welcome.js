@@ -1,49 +1,31 @@
 // welcome page: listen to the welcome message, then the Come in button shows up
 
 // background music: button in the corner turns it on and off
-
 var backgroundSound = document.querySelector("#background-sound");
-
 var soundToggle = document.querySelector("#sound-toggle");
 
-backgroundSound.volume = 0.3; 
+backgroundSound.volume = 0.3;
 
 // keep the icon to match what is happening
 backgroundSound.addEventListener("play", function (){
 
   soundToggle.classList.add("playing");
-  soundToggle.setAttribute("aria-label", "Mute background music");
 
 });
 
 backgroundSound.addEventListener("pause", function (){
-
   soundToggle.classList.remove("playing");
-  soundToggle.setAttribute("aria-label", "Play background music");
-
 });
 
-soundToggle.addEventListener("click", function () {
+soundToggle.addEventListener("click", function (){
 
   if(backgroundSound.paused){
-
     backgroundSound.play();
-
   }else{
     backgroundSound.pause();
   }
+
 });
-
-// still try to autoplay
-//  if the browser allows it, the icon switches to "playing" by itself
-var attempt = backgroundSound.play();
-
-if (attempt){
-  attempt.catch(function (){
-    // blocked: the button is how the user starts it
-  });
-}
-
 
 
 var welcomeSound = document.querySelector("#welcome-sound");
