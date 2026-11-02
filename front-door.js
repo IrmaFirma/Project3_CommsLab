@@ -33,7 +33,7 @@ ringButton.addEventListener("click", function (){
   // hide the ring button and update the text
   ringButton.hidden = true;
 
-  message.textContent = "Ding dong...";
+  message.textContent = " ";
 
 
   // play the doorbell; if the file can't play (missing or broken), carry on anyway
@@ -52,7 +52,7 @@ function showCouple() {
   photoAfter.hidden = true;
   blackout.hidden = false;
 
-  message.textContent = "The door is opening...";
+  message.textContent = " ";
 
   // stay on the black screen for 1.5 seconds, then show the couple
   setTimeout(function () {
@@ -61,7 +61,7 @@ function showCouple() {
 
     comeInButton.hidden = false;
 
-    message.textContent = "They are smiling at you.";
+    message.textContent = " ";
   }, 1500);
 
 }
@@ -75,6 +75,6 @@ function showNextButton(){
   comeInButton.hidden = true;
   nextButton.hidden = false;
 
-  message.textContent = "Come in, come in!";
+  message.textContent = " ";
 
 }
