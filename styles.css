@@ -185,7 +185,7 @@ main{
   display: grid;
   place-items: center;
   aspect-ratio: 16 / 9;
-  width: 92vw;
+  width: 80vw;
   max-width: 75rem;
   position: relative;
   left: 50%;
