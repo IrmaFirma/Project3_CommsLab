@@ -23,6 +23,28 @@ function playSound(sound){
 }
 
 
+// slowly change a sound's volume to a new level over a number of seconds
+// (a sound that fades down to 0 is paused at the end)
+function fadeTo(sound, targetVolume, seconds){
+  var stepsLeft = seconds * 20;
+  var change = (targetVolume - sound.volume) / stepsLeft;
+
+  var timer = setInterval(function (){
+    stepsLeft = stepsLeft - 1;
+    sound.volume = Math.min(1, Math.max(0, sound.volume + change));
+
+    if(stepsLeft <= 0){
+      clearInterval(timer);
+      sound.volume = targetVolume;
+
+      if(targetVolume === 0){
+        sound.pause();
+      }
+    }
+  }, 50);
+}
+
+
 // click "Walk down the hallway"
 walkButton.addEventListener("click", function (){
 
@@ -38,6 +60,16 @@ walkButton.addEventListener("click", function (){
       setTimeout(walkEnds, 5000);
     });
   }
+
+  // the party is still loud, then fades away as you walk
+  partySound.volume = 0.5;
+  playSound(partySound);
+  fadeTo(partySound, 0, 5);
+
+  // the eerie music creeps in, but stays very soft
+  musicSound.volume = 0;
+  playSound(musicSound);
+  fadeTo(musicSound, 0.15, 5);
 });
 
 
