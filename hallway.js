@@ -95,10 +95,10 @@ function walkEnds(){
 hallwayVideo.addEventListener("ended", walkEnds);
 
 
-// the whispers stop dead and the glass shatters
+// the whispers stop dead and glass shatters close by
 function glassBreaks(){
   whisperSound.pause();
-  message.textContent = "Something breaks in the kitchen.";
+  message.textContent = "Glass shatters somewhere close.";
 
   glassSound.volume = 0.9;
 
