@@ -64,9 +64,11 @@ climbButton.addEventListener("click", function () {
   flickerSound.volume = 0.6;
   flickerSound.play();
 
-  // if the whispers file can't play (missing or broken), carry on anyway
-  var playing = whisperSound.play();
-  if (playing) {
-    playing.catch(function () { });
+  // if the whispers can't play (the sound isn't on the page, or the file is missing or broken), carry on anyway
+  if (whisperSound) {
+    var playing = whisperSound.play();
+    if (playing) {
+      playing.catch(function () { });
+    }
   }
 });
