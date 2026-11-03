@@ -495,16 +495,25 @@ body:not(.welcome-page) main p{
   text-align: center;
 }
 
-/* the picture: as big as fits, still 16:9. it is no longer pushed sideways with left/transform */
+/* the picture: as big as fits, still 16:9. main is a size container, so cqw / cqh are its width and height.
+   the picture is the widest 16:9 box that fits in main after leaving room under it for the line of text and the buttons */
+body:not(.welcome-page) main{
+  /* used this documentation to learn about container-type and the cqw / cqh units: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries */
+  container-type: size;
+}
+
 body:not(.welcome-page) .scene{
-  flex: 1 1 0;
-  min-height: 0;
-  width: auto;
-  max-width: 100%;
-  max-height: 100%;
+  flex: none;
+  width: min(100cqw, (100cqh - 6rem) * 16 / 9);
+  max-width: none;
   left: auto;
   transform: none;
   margin: 0;
+}
+
+/* the living room has no text or buttons under the picture, so it keeps almost all of the height */
+body.living-room .scene{
+  width: min(100cqw, (100cqh - 0.5rem) * 16 / 9);
 }
 
 /* the line under the picture keeps its place (even when empty) so the picture doesn't jump when the words change */
