@@ -366,3 +366,31 @@ body.welcome-page{
     filter: brightness(0.75);
   }
 }
+
+
+
+/* kitchen walk: when you walk across the kitchen, the picture slowly zooms in
+   toward the stairs on the left, like you are walking over to them */
+.kitchen-scene{
+  overflow: hidden;
+}
+
+.kitchen-scene img{
+  transform-origin: 12% 60%;
+  transition: transform 5s ease-in-out;
+}
+
+.kitchen-scene img.walking{
+  transform: scale(1.25);
+}
+
+/* people who set their device to avoid motion don't get the zoom */
+@media (prefers-reduced-motion: reduce){
+  .kitchen-scene img{
+    transition: none;
+  }
+
+  .kitchen-scene img.walking{
+    transform: none;
+  }
+}

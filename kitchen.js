@@ -58,6 +58,9 @@ walkButton.addEventListener("click", function (){
   walkButton.hidden = true;
   message.textContent = "Glass crunches under your feet.";
 
+  // the picture slowly moves toward the stairs while you walk
+  photoKitchen.classList.add("walking");
+
   crunchSound.volume = 0.9;
 
   // if the crunch file can't play (missing or broken), carry on anyway
