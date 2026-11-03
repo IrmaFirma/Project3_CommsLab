@@ -43,5 +43,11 @@ enterButton.addEventListener("click", function (){
   musicSound.preservesPitch = false;
   musicSound.playbackRate = 0.85;
   playSound(musicSound);
+
+  // after 10 seconds of listening, you can walk across the kitchen
+  setTimeout(function () {
+    message.textContent = "There is something all over the floor.";
+    walkButton.hidden = false;
+  }, 10000);
 });
 
