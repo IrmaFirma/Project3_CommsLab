@@ -1,37 +1,37 @@
-// front door page: ring the doorbell, see the next photo, play the greeting
+// front door page: 
 
-// everything needed from the page
+// Learned more about catching errors from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch
+// Learned about timeout from https://developer.mozilla.org/en-US/docs/Web/API/Window/setTimeout
+// Read more about event listeners from https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+
 
 // TODO: add the come-in sound and the come-in button
 
-// Learned more about catching errors from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch
-
+// scenes
 var photoBefore = document.querySelector("#photo-before");
 var photoAfter = document.querySelector("#photo-after");
 var photoCouple = document.querySelector("#photo-couple");
 var blackout = document.querySelector("#blackout");
+
+// messages, sounds, buttons
 var message = document.querySelector("#door-message");
 var doorbellSound = document.querySelector("#doorbell-sound");
 var ringButton = document.querySelector("#ring-button");
 var nextButton = document.querySelector("#next-button");
 
 
-// click "Ring the doorbell"
-
+// click this button to ring the doorbell
 ringButton.addEventListener("click", function () {
 
-  // swap the photos
+  // photos can be swapped 
   photoBefore.hidden = true;
-
   photoAfter.hidden = false;
 
-  // hide the ring button and update the text
+  // update message text and hide the button
   ringButton.hidden = true;
-
   message.textContent = " ";
 
-
-  // play the doorbell; if the file can't play (missing or broken), carry on anyway
+  // try playing doorbell sound if it can't play catch the error and show next photo anyway
   var playing = doorbellSound.play();
   if (playing) {
     playing.catch(showCouple);
@@ -41,16 +41,15 @@ ringButton.addEventListener("click", function () {
 
 });
 
-// Learned about timeout from https://developer.mozilla.org/en-US/docs/Web/API/Window/setTimeout
 
-// when the doorbell is done: black screen while the door opens, then the couple show up
+// when doorbell sound is done, show the couple 
 function showCouple() {
   photoAfter.hidden = true;
   blackout.hidden = false;
 
   message.textContent = " ";
 
-  // stay on the black screen for 1.5 seconds, then show the couple
+  // show black screen for 1.5s and then show couple
   setTimeout(function () {
     blackout.hidden = true;
     photoCouple.hidden = false;
@@ -62,15 +61,13 @@ function showCouple() {
 
 }
 
-// Read more about event listeners from https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
 doorbellSound.addEventListener("ended", showCouple);
 
 
-// when the greeting is done (or again some unknown error), show the way to the living room
+// when the come in greeting is done, show button to next page
 function showNextButton() {
   comeInButton.hidden = true;
   nextButton.hidden = false;
-
   message.textContent = " ";
 
 }
