@@ -1,4 +1,5 @@
-// hallway page: you walk away from the party, hear whispers from the kitchen, then glass breaks
+// hallway page: you walk away from the party, hear whispers from the kitchen, then glass breaks close by,
+// someone is dragged away toward the bedroom, a short muffled sound, and angry whispers
 
 var hallwayVideo = document.querySelector("#hallway-video");
 
@@ -7,6 +8,8 @@ var musicSound = document.querySelector("#music-sound");
 var footstepsSound = document.querySelector("#footsteps-sound");
 var whisperSound = document.querySelector("#whisper-sound");
 var glassSound = document.querySelector("#glass-sound");
+var dragSound = document.querySelector("#drag-sound");
+var muffledSound = document.querySelector("#muffled-sound");
 
 var walkButton = document.querySelector("#walk-button");
 var nextButton = document.querySelector("#next-button");
@@ -106,11 +109,43 @@ function glassBreaks(){
   var playing = glassSound.play();
 
   if(playing){
+    playing.catch(someoneIsDragged);
+  }
+}
+
+glassSound.addEventListener("ended", someoneIsDragged);
+
+
+// right after the glass: fast shuffling and scraping as someone is pulled away toward the bedroom
+function someoneIsDragged(){
+  message.textContent = "Someone is pulled away toward the stairs.";
+
+  dragSound.volume = 0.8;
+
+  // if the drag file can't play (missing or broken), carry on anyway
+  var playing = dragSound.play();
+
+  if(playing){
+    playing.catch(muffledCry);
+  }
+}
+
+dragSound.addEventListener("ended", muffledCry);
+
+
+// the dragging ends with one short muffled sound
+function muffledCry(){
+  muffledSound.volume = 0.7;
+
+  // if the muffled file can't play (missing or broken), carry on anyway
+  var playing = muffledSound.play();
+
+  if(playing){
     playing.catch(angryWhispers);
   }
 }
 
-glassSound.addEventListener("ended", angryWhispers);
+muffledSound.addEventListener("ended", angryWhispers);
 
 
 // after the glass: a moment of silence, then louder, angrier whispering
