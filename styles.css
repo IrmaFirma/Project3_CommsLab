@@ -3,6 +3,7 @@
    One style for every page. Each room's look comes from its scene image.
 */
 
+/* Read about universal selector here: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Universal_selectors */
 *{
   box-sizing: border-box;
   margin: 0;
@@ -12,7 +13,6 @@
 
 body{
   display: flex;
-
   flex-direction: column;
   min-height: 100vh;
   background: #1c1819;
@@ -169,6 +169,7 @@ main{
 }
 
 /* hidden buttons stay hidden */
+/* Learned about attribute selectors here: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Attribute_selectors */
 .button[hidden]{
   display: none;
 }
@@ -181,16 +182,14 @@ main{
 
 
 /* room pages styling */
-.scene{
+.scene {
   display: grid;
   place-items: center;
   aspect-ratio: 16 / 9;
-  width: 80vw;
+  width: 80%;
   max-width: 75rem;
   position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  margin: 2rem 0;
+  margin: 2rem auto;
   padding: 0;
   color: #b3aaa8;
   font-style: italic;
@@ -285,7 +284,6 @@ body.welcome-page{
 }
 
 /* background music button, bottom right corner */
-
 .sound-toggle{
   position: fixed;
   right: 1.25rem;
@@ -316,13 +314,11 @@ body.welcome-page{
 
 /* show the "off" icon by default, the "on" icon while music is playing */
 .sound-toggle .icon-on{
-
   display: none;
 }
 .sound-toggle.playing .icon-on{
   display: block;
 }
-
 
 
 .sound-toggle.playing .icon-off{

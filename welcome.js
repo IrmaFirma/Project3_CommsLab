@@ -1,4 +1,8 @@
 // welcome page: listen to the welcome message, then the Come in button shows up
+// Resources used: https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement
+// Resources used: https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Autoplay
+// Resources used: https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent
+
 
 // background music: button in the corner turns it on and off
 var backgroundSound = document.querySelector("#background-sound");
@@ -53,9 +57,7 @@ listenButton.addEventListener("click", function (){
 // when the message is done: hide the listen button, show the Come in button
 function showEnterButton(){
   listenButton.hidden = true;
-
   enterButton.hidden = false;
-
 }
 
 

@@ -4,17 +4,15 @@
 
 // TODO: add the come-in sound and the come-in button
 
+// Learned more about catching errors from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch
+
 var photoBefore = document.querySelector("#photo-before");
 var photoAfter = document.querySelector("#photo-after");
 var photoCouple = document.querySelector("#photo-couple");
 var blackout = document.querySelector("#blackout");
 var message = document.querySelector("#door-message");
-
-
 var doorbellSound = document.querySelector("#doorbell-sound");
-
 var ringButton = document.querySelector("#ring-button");
-
 var nextButton = document.querySelector("#next-button");
 
 
@@ -26,7 +24,6 @@ ringButton.addEventListener("click", function (){
   photoBefore.hidden = true;
 
   photoAfter.hidden = false;
-
 
   // hide the ring button and update the text
   ringButton.hidden = true;
@@ -44,6 +41,7 @@ ringButton.addEventListener("click", function (){
 
 });
 
+// Learned about timeout from https://developer.mozilla.org/en-US/docs/Web/API/Window/setTimeout
 
 // when the doorbell is done: black screen while the door opens, then the couple show up
 function showCouple() {
@@ -64,8 +62,8 @@ function showCouple() {
 
 }
 
+// Read more about event listeners from https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
 doorbellSound.addEventListener("ended", showCouple);
-
 
 
 // when the greeting is done (or again some unknown error), show the way to the living room

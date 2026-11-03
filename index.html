@@ -5,6 +5,7 @@
   
   <title>Welcome to The Dinner Party</title>
 
+  <!-- Learned about preconnect here: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Karla:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
@@ -14,7 +15,6 @@
 
   <header class="menu">
     
-
     <a class="thename" href="index.html">The Dinner Party</a>
 
     <nav><ul>
@@ -38,12 +38,15 @@
 
     <!-- TODO: welcome sound still missing so have to record that -->
     <!-- welcome message: plays when you click, then the Come in button shows up -->
+
+    <!-- Learned more about loop attribute here: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/audio -->
     <audio id="background-sound" src="audio/eerie-background-music.mp3" loop></audio>
     <audio id="welcome-sound" src="audio/welcome.mp3"></audio>
 
     <div class="controls">
       <button id="listen-button" class="button" type="button">Listen to the welcome message</button>
 
+      <!-- Learned about hidden attribute here: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/hidden -->
       <a id="enter-button" class="button" href="front-door.html" hidden>Come in</a>
     
     </div>
@@ -54,13 +57,13 @@
 
   <!-- sound toggle button: plays background music when clicked, and toggles between on and off images -->
   <button id="sound-toggle" class="sound-toggle" type="button">
-
     <img class="icon-on" src="assets/on.png">
-
     <img class="icon-off" src="assets/off.png">
   </button>
 
   <script src="welcome.js"></script>
+
+
 
 </body>
 </html>
