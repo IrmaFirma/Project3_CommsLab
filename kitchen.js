@@ -51,3 +51,31 @@ enterButton.addEventListener("click", function (){
   }, 10000);
 });
 
+
+// click "Walk across the kitchen"
+walkButton.addEventListener("click", function (){
+
+  walkButton.hidden = true;
+  message.textContent = "Glass crunches under your feet.";
+
+  crunchSound.volume = 0.9;
+
+  // if the crunch file can't play (missing or broken), carry on anyway
+  var playing = crunchSound.play();
+
+  if(playing){
+    playing.catch(reachTheStairs);
+  }
+});
+
+
+// when the footsteps stop: you see what you walked through, then the way to the staircase shows up
+function reachTheStairs(){
+  message.textContent = "Broken cups and plates. A few small stains lead to the stairs.";
+
+  setTimeout(function () {
+    nextButton.hidden = false;
+  }, 5000);
+}
+
+crunchSound.addEventListener("ended", reachTheStairs);
