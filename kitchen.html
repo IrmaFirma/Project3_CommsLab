@@ -41,6 +41,19 @@
 
     <p id="room-message">The kitchen is quiet.</p>
 
+    <!-- sounds: the fridge hums and the tap drips the whole time, the music gets creepier,
+         then footsteps crunch on the broken glass -->
+    <audio id="fridge-sound" src="audio/fridge-hum.mp3" loop></audio>
+    <audio id="tap-sound" src="audio/dripping-tap.mp3" loop></audio>
+    <audio id="music-sound" src="audio/eerie-background-music.mp3" loop></audio>
+    <audio id="crunch-sound" src="audio/crunch-of-footsteps.mp3"></audio>
+
+    <div class="controls">
+      <button id="enter-button" class="button" type="button">Step into the kitchen</button>
+      <button id="walk-button" class="button" type="button" hidden>Walk across the kitchen</button>
+      <a id="next-button" class="button" href="staircase.html" hidden>Go to the staircase</a>
+    </div>
+
   </main>
   <footer>Made by Jayden, Mariam and Irma @NYUAD.</footer>
 
