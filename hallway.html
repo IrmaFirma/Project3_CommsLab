@@ -41,6 +41,21 @@
 
     <p id="room-message">The party is still going behind you.</p>
 
+    <!-- sounds: the party fades out, soft music underneath, footsteps, whispers from the kitchen, then glass breaks -->
+    <!-- TODO: party sound (laughter and conversation) still missing, add it as audio/laughter-and-conversation.mp3 -->
+    <audio id="party-sound" src="audio/laughter-and-conversation.mp3" loop></audio>
+    <audio id="music-sound" src="audio/eerie-background-music.mp3" loop></audio>
+    <!-- TODO: plain footsteps still missing (not the glass ones), add them as audio/footsteps.mp3 -->
+    <audio id="footsteps-sound" src="audio/footsteps.mp3" loop></audio>
+    <!-- TODO: whispers recording still missing (same file the staircase uses) -->
+    <audio id="whisper-sound" src="audio/whispers.mp3"></audio>
+    <audio id="glass-sound" src="audio/glass-shattering.mp3"></audio>
+
+    <div class="controls">
+      <button id="walk-button" class="button" type="button">Walk down the hallway</button>
+      <a id="next-button" class="button" href="kitchen.html" hidden>Go to the kitchen</a>
+    </div>
+
   </main>
   <footer>Made by Jayden, Mariam and Irma @NYUAD.</footer>
 
