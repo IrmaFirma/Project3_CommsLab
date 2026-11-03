@@ -9,7 +9,6 @@ var whisperSound = document.querySelector("#whisper-sound");
 
 var climbButton = document.querySelector("#climb-button");
 var nextButton = document.querySelector("#next-button");
-var message = document.querySelector("#room-message");
 
 
 // used this documentation to learn about window.matchMedia: https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia
@@ -21,7 +20,7 @@ var lightIsOn = true;
 
 
 // swap the lit and dark pictures, then wait a random time before swapping again
-function flicker() {
+function flicker(){
   lightIsOn = !lightIsOn;
 
   photoStairs.hidden = !lightIsOn;
@@ -47,10 +46,9 @@ setTimeout(flicker, 800);
 
 
 // click "Climb the stairs"
-climbButton.addEventListener("click", function () {
+climbButton.addEventListener("click", function (){
 
   climbButton.hidden = true;
-  message.textContent = "The light keeps cutting out. Something is whispering.";
 
   // quiet music underneath everything
   musicSound.volume = 0.3;
@@ -63,7 +61,7 @@ climbButton.addEventListener("click", function () {
   // if the whispers file can't play (missing or broken), carry on anyway
   var playing = whisperSound.play();
   if (playing) {
-    playing.catch(function () { });
+    playing.catch(function () {});
   }
 
   // after 10 seconds the way to the upstairs hallway shows up
