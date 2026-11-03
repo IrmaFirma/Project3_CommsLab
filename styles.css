@@ -1,9 +1,9 @@
-/* 
-   THE DINNER PARTY
-   One style for every page. Each room's look comes from its scene image.
-*/
+/* THE DINNER PARTY */
 
+/* Learned about attribute selectors here: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Attribute_selectors */
 /* Read about universal selector here: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Universal_selectors */
+
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -46,7 +46,6 @@ p {
 
 
 /* menu nav bar */
-
 .menu {
   display: flex;
   flex-wrap: wrap;
@@ -87,8 +86,7 @@ p {
   color: #e9e4e2;
 }
 
-/* the page you are currently on */
-
+/* the page you are currently visiting */
 .menu ul a.active {
 
   color: #e9e4e2;
@@ -106,7 +104,7 @@ main {
 }
 
 
-/* welcome page and animation for the text */
+/* welcome page and text animation */
 .welcome {
   padding-top: 6rem;
   text-align: center;
@@ -152,14 +150,14 @@ main {
 
 }
 
-/* button hover: the border turns light and the red gets a bit brighter */
+/* button hover */
 .button:hover {
 
   background: #a8394a;
   border-color: #e9e4e2;
 }
 
-/* buttons under the image, but centered */
+/* buttons under the image */
 .controls {
   display: flex;
   flex-wrap: wrap;
@@ -170,20 +168,19 @@ main {
 
 }
 
-/* hidden buttons stay hidden */
-/* Learned about attribute selectors here: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Attribute_selectors */
+/* hidden buttons */
 .button[hidden] {
   display: none;
 }
 
 
-/* the line of text under the image, centered */
+/* text under image */
 #door-message {
   text-align: center;
 }
 
 
-/* room pages styling */
+/* room pages */
 .scene {
   display: grid;
   place-items: center;
@@ -200,7 +197,7 @@ main {
   border: 1px solid #3a3234;
 }
 
-/* when you add a scene image, it fills the box */
+/* scene img */
 .scene img {
   width: 100%;
   height: 100%;
@@ -208,7 +205,6 @@ main {
 }
 
 /* footer */
-
 footer {
   padding: 1.25rem 2rem;
   color: #b3aaa8;
@@ -218,7 +214,7 @@ footer {
   border-top: 1px solid #3a3234;
 }
 
-/* black screen while the door is opening */
+/* black screen transition */
 .blackout {
 
   width: 100%;
@@ -228,7 +224,7 @@ footer {
 
 
 
-/* add background image on welcome page */
+/* background image on welcome page */
 body.welcome-page {
   background-image: linear-gradient(rgba(20, 17, 18, 0.6), rgba(20, 17, 18, 0.6)), url("assets/index-back.png");
   background-size: cover;
@@ -285,7 +281,7 @@ body.welcome-page {
   inset: 0;
 }
 
-/* background music button, bottom right corner */
+/* eerie background music on welcome page toggle */
 .sound-toggle {
   position: fixed;
   right: 1.25rem;
@@ -314,7 +310,7 @@ body.welcome-page {
 }
 
 
-/* show the "off" icon by default, the "on" icon while music is playing */
+/* off icon is shown by default then on when eerie music is played */
 .sound-toggle .icon-on {
   display: none;
 }
