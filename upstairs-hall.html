@@ -6,8 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Upstairs hallway of The Dinner Party</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Karla:wght@400;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Karla:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -17,41 +16,35 @@
 
     <a class="thename" href="index.html">The Dinner Party</a>
 
-    <nav>
-      <ul>
-        <li><a href="index.html">Welcome</a></li>
-        <li><a href="front-door.html">Front door</a></li>
-        <li><a href="living-room.html">Living room</a></li>
-        <li><a href="hallway.html">Hallway</a></li>
-        <li><a href="kitchen.html">Kitchen</a></li>
-        <li><a href="staircase.html">Staircase</a></li>
-        <li><a href="upstairs-hall.html" class="active">Upstairs hallway</a></li>
-        <li><a href="bedroom.html">Bedroom</a></li>
-      </ul>
-    </nav>
+    <nav><ul>
+      <li><a href="index.html">Welcome</a></li>
+      <li><a href="front-door.html">Front door</a></li>
+      <li><a href="living-room.html">Living room</a></li>
+      <li><a href="hallway.html">Hallway</a></li>
+      <li><a href="kitchen.html">Kitchen</a></li>
+      <li><a href="staircase.html">Staircase</a></li>
+      <li><a href="upstairs-hall.html" class="active">Upstairs hallway</a></li>
+      <li><a href="bedroom.html">Bedroom</a></li>
+    </ul></nav>
 
   </header>
 
   <main>
-    <h1>Upstairs hallway</h1>
-
-    <p>The last door at the end of the hall.</p>
-
-    <!-- scene: the dark hallway. the brighter picture only shows inside the flashlight circle -->
-    <div class="scene flashlight dim-base">
-      <img id="photo-hall-dark" src="assets/9.JPG" alt="A dark hallway with a faint red light at the end">
-      <img class="bright" id="photo-hall-bright" src="assets/10.JPG" alt="">
+    <!-- scene: the hallway video. a dark layer on top of it dims everything except a circle
+         around the mouse (the flashlight, see "video flashlight" in styles.css and flashlight.js).
+         the video has its own sound -->
+    <!-- used this documentation to learn about the video element and its attributes (poster, preload, playsinline): https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/video -->
+    <!-- "poster" is the picture shown until the video is ready, "preload" tells the browser to start
+         downloading it straight away-->
+    <div class="scene flashlight video-flashlight">
+      <video id="hall-video" src="assets/upstairs-hallway-video.mp4" poster="assets/10.JPG" playsinline preload="auto"></video>
+      <div class="flashlight-dim"></div>
     </div>
 
-    <p id="room-message">It is too dark to see. Move your mouse to light the way.</p>
-
-    <!-- sounds: muffled yelling that stops with a bang, then silence -->
-    <audio id="yelling-sound" src="audio/muffled-yelling.mp3"></audio>
-    <audio id="bang-sound" src="audio/bang.mp3"></audio>
+    <p id="room-message">Move your mouse to light the way.</p>
 
     <div class="controls">
-      <button id="listen-button" class="button" type="button">Listen at the door</button>
-      <a id="next-button" class="button" href="bedroom.html" hidden>Open the door</a>
+      <button id="enter-button" class="button" type="button" hidden>Enter the room</button>
     </div>
 
   </main>
