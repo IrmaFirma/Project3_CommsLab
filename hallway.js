@@ -123,5 +123,10 @@ function angryWhispers(){
     whisperSound.currentTime = 0;
     whisperSound.volume = 0.8;
     playSound(whisperSound);
+
+    // after 5 seconds the way to the kitchen shows up
+    setTimeout(function () {
+      nextButton.hidden = false;
+    }, 5000);
   }, 1500);
 }
