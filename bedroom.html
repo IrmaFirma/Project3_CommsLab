@@ -6,8 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bedroom of The Dinner Party</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Karla:wght@400;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Karla:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -17,41 +16,36 @@
 
     <a class="thename" href="index.html">The Dinner Party</a>
 
-    <nav>
-      <ul>
-        <li><a href="index.html">Welcome</a></li>
-        <li><a href="front-door.html">Front door</a></li>
-        <li><a href="living-room.html">Living room</a></li>
-        <li><a href="hallway.html">Hallway</a></li>
-        <li><a href="kitchen.html">Kitchen</a></li>
-        <li><a href="staircase.html">Staircase</a></li>
-        <li><a href="upstairs-hall.html">Upstairs hallway</a></li>
-        <li><a href="bedroom.html" class="active">Bedroom</a></li>
-      </ul>
-    </nav>
+    <nav><ul>
+      <li><a href="index.html">Welcome</a></li>
+      <li><a href="front-door.html">Front door</a></li>
+      <li><a href="living-room.html">Living room</a></li>
+      <li><a href="hallway.html">Hallway</a></li>
+      <li><a href="kitchen.html">Kitchen</a></li>
+      <li><a href="staircase.html">Staircase</a></li>
+      <li><a href="upstairs-hall.html">Upstairs hallway</a></li>
+      <li><a href="bedroom.html" class="active">Bedroom</a></li>
+    </ul></nav>
 
   </header>
 
   <main>
-    <h1>Bedroom</h1>
-
-    <p>You push the door open.</p>
-
-    <!-- scene: the dark room. the lit room (blood splatters and drag marks) only shows inside the flashlight circle -->
+    <!-- scene: the dark room. the lit room (blood splatters and drag marks) only shows inside the flashlight circle,
+         until you turn the light on -->
     <div class="scene flashlight">
       <img id="photo-dark" src="assets/11.jpg" alt="A dark bedroom with a window">
-      <img class="bright" id="photo-lit" src="assets/12.PNG"
-        alt="A bedroom with blood splattered on the walls and bed, and marks dragged across the floor">
+      <img class="bright" id="photo-lit" src="assets/12.PNG" alt="A bedroom with blood splattered on the walls and bed, and marks dragged across the floor">
     </div>
 
-    <p id="room-message">It is very dark in here.</p>
+    <p id="room-message">Move your mouse to look around.</p>
 
-    <!-- sounds: the door opens, then a low drone underneath the room -->
-    <audio id="door-sound" src="audio/door-opening.mp3"></audio>
-    <audio id="drone-sound" src="audio/low-droning.mp3" loop></audio>
+    <!-- sounds: the room's music plays the whole time you look around, and the light switch clicks and the gasp plays when you turn the light on -->
+    <audio id="bedroom-sound" src="audio/bedroom.m4a" loop></audio>
+    <audio id="switch-sound" src="audio/switch.m4a"></audio>
+    <audio id="gasp-sound" src="audio/gasp.m4a"></audio>
 
     <div class="controls">
-      <button id="enter-button" class="button" type="button">Step inside</button>
+      <button id="light-button" class="button" type="button">Turn the light on</button>
       <a id="restart-button" class="button" href="index.html" hidden>Start over</a>
     </div>
 
