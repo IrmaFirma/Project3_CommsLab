@@ -336,3 +336,33 @@ body.welcome-page{
   height: 100%;
   object-fit: cover;
 }
+
+
+
+/* hallway flicker: the hallway is dimmer than the other rooms and one light keeps
+   flickering. the brightness dips for a split second at uneven moments so it
+   doesn't feel like a steady rhythm */
+.hallway-flicker video{
+  animation: hallway-flicker 5s infinite;
+}
+
+@keyframes hallway-flicker{
+  0%, 100%{ filter: brightness(0.75); }
+  30%{ filter: brightness(0.75); }
+  31%{ filter: brightness(0.35); }
+  32%{ filter: brightness(0.75); }
+  34%{ filter: brightness(0.4); }
+  35%{ filter: brightness(0.75); }
+  72%{ filter: brightness(0.75); }
+  73%{ filter: brightness(0.3); }
+  76%{ filter: brightness(0.3); }
+  77%{ filter: brightness(0.75); }
+}
+
+/* people who set their device to avoid flashing get a steady dim hallway instead */
+@media (prefers-reduced-motion: reduce){
+  .hallway-flicker video{
+    animation: none;
+    filter: brightness(0.75);
+  }
+}
