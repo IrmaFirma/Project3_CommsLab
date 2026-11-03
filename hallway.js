@@ -17,30 +17,30 @@ var message = document.querySelector("#room-message");
 
 
 // play a sound; if the file can't play (missing or broken), carry on anyway
-function playSound(sound){
+function playSound(sound) {
   var playing = sound.play();
 
-  if(playing){
-    playing.catch(function () {});
+  if (playing) {
+    playing.catch(function () { });
   }
 }
 
 
 // slowly change a sound's volume to a new level over a number of seconds
 // (a sound that fades down to 0 is paused at the end)
-function fadeTo(sound, targetVolume, seconds){
+function fadeTo(sound, targetVolume, seconds) {
   var stepsLeft = seconds * 20;
   var change = (targetVolume - sound.volume) / stepsLeft;
 
-  var timer = setInterval(function (){
+  var timer = setInterval(function () {
     stepsLeft = stepsLeft - 1;
     sound.volume = Math.min(1, Math.max(0, sound.volume + change));
 
-    if(stepsLeft <= 0){
+    if (stepsLeft <= 0) {
       clearInterval(timer);
       sound.volume = targetVolume;
 
-      if(targetVolume === 0){
+      if (targetVolume === 0) {
         sound.pause();
       }
     }
@@ -49,7 +49,7 @@ function fadeTo(sound, targetVolume, seconds){
 
 
 // click "Walk down the hallway"
-walkButton.addEventListener("click", function (){
+walkButton.addEventListener("click", function () {
 
   walkButton.hidden = true;
   message.textContent = "The party gets quieter behind you.";
@@ -58,7 +58,7 @@ walkButton.addEventListener("click", function (){
   // if the video can't play (missing or broken), carry on after 5 seconds anyway
   var walking = hallwayVideo.play();
 
-  if(walking){
+  if (walking) {
     walking.catch(function () {
       setTimeout(walkEnds, 5000);
     });
@@ -89,7 +89,7 @@ walkButton.addEventListener("click", function (){
 
 
 // when the video is done: the footsteps stop, then 2 seconds later the glass breaks
-function walkEnds(){
+function walkEnds() {
   footstepsSound.pause();
 
   setTimeout(glassBreaks, 2000);
@@ -99,7 +99,7 @@ hallwayVideo.addEventListener("ended", walkEnds);
 
 
 // the whispers stop dead and glass shatters close by
-function glassBreaks(){
+function glassBreaks() {
   whisperSound.pause();
   message.textContent = "Glass shatters somewhere close.";
 
@@ -108,7 +108,7 @@ function glassBreaks(){
   // if the glass file can't play (missing or broken), carry on anyway
   var playing = glassSound.play();
 
-  if(playing){
+  if (playing) {
     playing.catch(someoneIsDragged);
   }
 }
@@ -117,7 +117,7 @@ glassSound.addEventListener("ended", someoneIsDragged);
 
 
 // right after the glass: fast shuffling and scraping as someone is pulled away toward the bedroom
-function someoneIsDragged(){
+function someoneIsDragged() {
   message.textContent = "Someone is pulled away toward the stairs.";
 
   dragSound.volume = 0.8;
@@ -125,7 +125,7 @@ function someoneIsDragged(){
   // if the drag file can't play (missing or broken), carry on anyway
   var playing = dragSound.play();
 
-  if(playing){
+  if (playing) {
     playing.catch(muffledCry);
   }
 }
@@ -134,13 +134,13 @@ dragSound.addEventListener("ended", muffledCry);
 
 
 // the dragging ends with one short muffled sound
-function muffledCry(){
+function muffledCry() {
   muffledSound.volume = 0.7;
 
   // if the muffled file can't play (missing or broken), carry on anyway
   var playing = muffledSound.play();
 
-  if(playing){
+  if (playing) {
     playing.catch(angryWhispers);
   }
 }
@@ -149,7 +149,7 @@ muffledSound.addEventListener("ended", angryWhispers);
 
 
 // after the glass: a moment of silence, then louder, angrier whispering
-function angryWhispers(){
+function angryWhispers() {
   message.textContent = "...";
 
   setTimeout(function () {

@@ -9,7 +9,7 @@ var message = document.querySelector("#room-message");
 
 
 // click "Listen at the door"
-listenButton.addEventListener("click", function (){
+listenButton.addEventListener("click", function () {
 
   listenButton.hidden = true;
   message.textContent = "Someone is shouting behind the door.";
@@ -19,14 +19,14 @@ listenButton.addEventListener("click", function (){
 
 
 // the moment the yelling ends: the bang
-yellingSound.addEventListener("ended", function (){
+yellingSound.addEventListener("ended", function () {
 
   bangSound.play();
 });
 
 
 // after the bang: 3 seconds of silence, then the choice to open the door
-bangSound.addEventListener("ended", function (){
+bangSound.addEventListener("ended", function () {
 
   message.textContent = "...";
 

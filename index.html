@@ -1,32 +1,37 @@
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+
   <title>Welcome to The Dinner Party</title>
 
   <!-- Learned about preconnect here: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Karla:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Karla:wght@400;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 
 </head>
+
 <body class="welcome-page">
 
   <header class="menu">
-    
+
     <a class="thename" href="index.html">The Dinner Party</a>
 
-    <nav><ul>
-      <li><a href="index.html" class="active">Welcome</a></li>
-      <li><a href="front-door.html">Front door</a></li>
-      <li><a href="living-room.html">Living room</a></li>
-      <li><a href="hallway.html">Hallway</a></li>
-      <li><a href="kitchen.html">Kitchen</a></li>
-      <li><a href="staircase.html">Staircase</a></li>
-      <li><a href="upstairs-hall.html">Upstairs hallway</a></li>
-      <li><a href="bedroom.html">Bedroom</a></li>
-    </ul></nav>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Welcome</a></li>
+        <li><a href="front-door.html">Front door</a></li>
+        <li><a href="living-room.html">Living room</a></li>
+        <li><a href="hallway.html">Hallway</a></li>
+        <li><a href="kitchen.html">Kitchen</a></li>
+        <li><a href="staircase.html">Staircase</a></li>
+        <li><a href="upstairs-hall.html">Upstairs hallway</a></li>
+        <li><a href="bedroom.html">Bedroom</a></li>
+      </ul>
+    </nav>
 
 
   </header>
@@ -34,7 +39,8 @@
 
   <main class="welcome">
     <h1>Oh you made it!</h1>
-    <p class="lead">Tonight's party has a few too many secrets. Walk through the house, listen closely, and notice what changes. Headphones recommended.</p>
+    <p class="lead">Tonight's party has a few too many secrets. Walk through the house, listen closely, and notice what
+      changes. Headphones recommended.</p>
 
     <!-- TODO: welcome sound still missing so have to record that -->
     <!-- welcome message: plays when you click, then the Come in button shows up -->
@@ -48,7 +54,7 @@
 
       <!-- Learned about hidden attribute here: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/hidden -->
       <a id="enter-button" class="button" href="front-door.html" hidden>Come in</a>
-    
+
     </div>
   </main>
 
@@ -66,4 +72,5 @@
 
 
 </body>
+
 </html>

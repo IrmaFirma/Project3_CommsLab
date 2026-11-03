@@ -11,21 +11,21 @@ var soundToggle = document.querySelector("#sound-toggle");
 backgroundSound.volume = 0.7;
 
 // keep the icon to match what is happening
-backgroundSound.addEventListener("play", function (){
+backgroundSound.addEventListener("play", function () {
 
   soundToggle.classList.add("playing");
 
 });
 
-backgroundSound.addEventListener("pause", function (){
+backgroundSound.addEventListener("pause", function () {
   soundToggle.classList.remove("playing");
 });
 
-soundToggle.addEventListener("click", function (){
+soundToggle.addEventListener("click", function () {
 
-  if(backgroundSound.paused){
+  if (backgroundSound.paused) {
     backgroundSound.play();
-  }else{
+  } else {
     backgroundSound.pause();
   }
 
@@ -40,7 +40,7 @@ var enterButton = document.querySelector("#enter-button");
 
 
 // click "Listen to the welcome message"
-listenButton.addEventListener("click", function (){
+listenButton.addEventListener("click", function () {
 
   listenButton.disabled = true;
   listenButton.textContent = " ";
@@ -48,14 +48,14 @@ listenButton.addEventListener("click", function (){
   // play the message; if the file can't play (missing or broken), show the Come in button anyway
   var playing = welcomeSound.play();
 
-  if(playing){
+  if (playing) {
     playing.catch(showEnterButton);
   }
 });
 
 
 // when the message is done: hide the listen button, show the Come in button
-function showEnterButton(){
+function showEnterButton() {
   listenButton.hidden = true;
   enterButton.hidden = false;
 }

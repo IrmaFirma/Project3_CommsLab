@@ -15,17 +15,17 @@ var message = document.querySelector("#room-message");
 
 
 // play a sound; if the file can't play (missing or broken), carry on anyway
-function playSound(sound){
+function playSound(sound) {
   var playing = sound.play();
 
-  if(playing){
-    playing.catch(function () {});
+  if (playing) {
+    playing.catch(function () { });
   }
 }
 
 
 // click "Step into the kitchen"
-enterButton.addEventListener("click", function (){
+enterButton.addEventListener("click", function () {
 
   enterButton.hidden = true;
   message.textContent = "Only the fridge and the tap are making a sound.";
@@ -53,7 +53,7 @@ enterButton.addEventListener("click", function (){
 
 
 // click "Walk across the kitchen"
-walkButton.addEventListener("click", function (){
+walkButton.addEventListener("click", function () {
 
   walkButton.hidden = true;
   message.textContent = "Glass crunches under your feet.";
@@ -66,14 +66,14 @@ walkButton.addEventListener("click", function (){
   // if the crunch file can't play (missing or broken), carry on anyway
   var playing = crunchSound.play();
 
-  if(playing){
+  if (playing) {
     playing.catch(reachTheStairs);
   }
 });
 
 
 // when the footsteps stop: you see what you walked through, then the way to the staircase shows up
-function reachTheStairs(){
+function reachTheStairs() {
   message.textContent = "Broken cups and plates. A few small stains lead to the stairs.";
 
   setTimeout(function () {

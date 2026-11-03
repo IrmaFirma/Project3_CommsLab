@@ -9,7 +9,7 @@ var message = document.querySelector("#room-message");
 
 
 // click "Step inside"
-enterButton.addEventListener("click", function (){
+enterButton.addEventListener("click", function () {
 
   enterButton.hidden = true;
   doorSound.play();
@@ -18,7 +18,7 @@ enterButton.addEventListener("click", function (){
 
 // when the door is done opening: the drone starts and the flashlight is the only way to see
 // (flashlight.js already follows the mouse, nothing else to do here)
-doorSound.addEventListener("ended", function (){
+doorSound.addEventListener("ended", function () {
 
   droneSound.volume = 0.6;
   droneSound.play();
