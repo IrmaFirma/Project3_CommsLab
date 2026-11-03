@@ -88,6 +88,40 @@ walkButton.addEventListener("click", function (){
 // when the video is done: the footsteps stop, then 2 seconds later the glass breaks
 function walkEnds(){
   footstepsSound.pause();
+
+  setTimeout(glassBreaks, 2000);
 }
 
 hallwayVideo.addEventListener("ended", walkEnds);
+
+
+// the whispers stop dead and the glass shatters
+function glassBreaks(){
+  whisperSound.pause();
+  message.textContent = "Something breaks in the kitchen.";
+
+  glassSound.volume = 0.9;
+
+  // if the glass file can't play (missing or broken), carry on anyway
+  var playing = glassSound.play();
+
+  if(playing){
+    playing.catch(angryWhispers);
+  }
+}
+
+glassSound.addEventListener("ended", angryWhispers);
+
+
+// after the glass: a moment of silence, then louder, angrier whispering
+function angryWhispers(){
+  message.textContent = "...";
+
+  setTimeout(function () {
+    message.textContent = "The whispers are angry now.";
+
+    whisperSound.currentTime = 0;
+    whisperSound.volume = 0.8;
+    playSound(whisperSound);
+  }, 1500);
+}
