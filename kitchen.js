@@ -36,5 +36,12 @@ enterButton.addEventListener("click", function (){
 
   tapSound.volume = 0.7;
   playSound(tapSound);
+
+  // the music gets creepier than in the hallway: louder, and slowed down so it sounds deeper
+  // (preservesPitch = false lets the slower speed drop the pitch too)
+  musicSound.volume = 0.35;
+  musicSound.preservesPitch = false;
+  musicSound.playbackRate = 0.85;
+  playSound(musicSound);
 });
 
