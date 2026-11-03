@@ -20,7 +20,7 @@ var lightIsOn = true;
 
 
 // swap the lit and dark pictures, then wait a random time before swapping again
-function flicker(){
+function flicker() {
   lightIsOn = !lightIsOn;
 
   photoStairs.hidden = !lightIsOn;
@@ -46,9 +46,15 @@ setTimeout(flicker, 800);
 
 
 // click "Climb the stairs"
-climbButton.addEventListener("click", function (){
+climbButton.addEventListener("click", function () {
 
   climbButton.hidden = true;
+
+  // after 5 seconds the way to the upstairs hallway shows up
+  // (this is set up first, so the sounds below can never stop the button from showing)
+  setTimeout(function () {
+    nextButton.hidden = false;
+  }, 5000);
 
   // quiet music underneath everything
   musicSound.volume = 0.3;
@@ -61,11 +67,6 @@ climbButton.addEventListener("click", function (){
   // if the whispers file can't play (missing or broken), carry on anyway
   var playing = whisperSound.play();
   if (playing) {
-    playing.catch(function () {});
+    playing.catch(function () { });
   }
-
-  // after 10 seconds the way to the upstairs hallway shows up
-  setTimeout(function () {
-    nextButton.hidden = false;
-  }, 10000);
 });
