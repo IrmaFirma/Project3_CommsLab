@@ -70,6 +70,18 @@ walkButton.addEventListener("click", function (){
   musicSound.volume = 0;
   playSound(musicSound);
   fadeTo(musicSound, 0.15, 5);
+
+  // footsteps for as long as the camera is moving
+  footstepsSound.volume = 0.6;
+  playSound(footstepsSound);
+
+  // after 3.5 seconds you can hear whispering from the kitchen
+  setTimeout(function () {
+    message.textContent = "Someone is whispering in the kitchen.";
+
+    whisperSound.volume = 0.3;
+    playSound(whisperSound);
+  }, 3500);
 });
 
 
