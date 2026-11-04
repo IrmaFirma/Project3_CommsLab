@@ -104,6 +104,18 @@ if(starting){
 }
 
 
+// ---------- glasses clink every now and then ----------
+// starting the same short sound again from the beginning (currentTime = 0) makes it clink again
+function clinkGlasses(){
+  glassesSound.currentTime = 0;
+  playSound(glassesSound);
+}
+
+setTimeout(clinkGlasses, 3000);
+setTimeout(clinkGlasses, 11000);
+setTimeout(clinkGlasses, 17000);
+
+
 // ---------- nobody turns around, then the hallway ----------
 setTimeout(function () {
   say("Nobody turns around to greet you.");
