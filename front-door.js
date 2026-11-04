@@ -73,7 +73,7 @@ function showNextButton() {
 
 }
 
-// this button plays the wife speaking to come inside house
+// button plays the wife speaking to come inside house
 comeInButton.addEventListener("click", function () {
   comeInButton.disabled = true;
   var playing2 = comeInSound2.play();
@@ -83,7 +83,7 @@ comeInButton.addEventListener("click", function () {
 });
 
 // play husband saying welcome
-comeInSound2.addEventListener("ended", function(){
+comeInSound2.addEventListener("ended", function () {
   var playing = comeInSound.play();
   if (playing) {
     playing.catch(showNextButton);

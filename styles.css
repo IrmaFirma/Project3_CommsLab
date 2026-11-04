@@ -426,11 +426,11 @@ body.welcome-page {
    same idea as the picture flashlight above, but there is only one layer: the video.
    a dark layer sits on top of it with a see-through circle cut out around --x / --y
    (flashlight.js moves those to follow the mouse), so the video is dimmed everywhere except in the circle */
-.video-flashlight{
+.video-flashlight {
   --size: 190px;
 }
 
-.flashlight-dim{
+.flashlight-dim {
   position: absolute;
   inset: 0;
   /* used this documentation to learn about the pointer-events property: https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events */
@@ -445,11 +445,11 @@ body.welcome-page {
 
 /* bedroom: turning the light on. the scene keeps the flashlight class, but the "light-on" class
    takes the mask off the bright picture, so all of it shows, and the cursor comes back */
-.flashlight.light-on{
+.flashlight.light-on {
   cursor: default;
 }
 
-.flashlight.light-on img.bright{
+.flashlight.light-on img.bright {
   -webkit-mask-image: none;
   mask-image: none;
 }
@@ -459,20 +459,20 @@ body.welcome-page {
    the page is exactly as tall as the window and never scrolls. the picture takes all the room that is
    left between the menu and the footer, keeping its 16:9 shape, and the line of text and the buttons
    sit right under it so they are always on screen */
-body:not(.welcome-page){
+body:not(.welcome-page) {
   height: 100vh;
   height: 100dvh;
   min-height: 0;
   overflow: hidden;
 }
 
-body:not(.welcome-page) footer{
+body:not(.welcome-page) footer {
   padding: 0.5rem 1.5rem;
   font-size: 0.85rem;
   line-height: 1.3;
 }
 
-body:not(.welcome-page) main{
+body:not(.welcome-page) main {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -484,12 +484,12 @@ body:not(.welcome-page) main{
 }
 
 /* any heading or line of text above the picture stays small so the picture gets the room */
-body:not(.welcome-page) main h1{
+body:not(.welcome-page) main h1 {
   margin-bottom: 0.25rem;
   font-size: 1.5rem;
 }
 
-body:not(.welcome-page) main p{
+body:not(.welcome-page) main p {
   margin-bottom: 0.25rem;
   line-height: 1.4;
   text-align: center;
@@ -497,12 +497,12 @@ body:not(.welcome-page) main p{
 
 /* the picture: as big as fits, still 16:9. main is a size container, so cqw / cqh are its width and height.
    the picture is the widest 16:9 box that fits in main after leaving room under it for the line of text and the buttons */
-body:not(.welcome-page) main{
+body:not(.welcome-page) main {
   /* used this documentation to learn about container-type and the cqw / cqh units: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries */
   container-type: size;
 }
 
-body:not(.welcome-page) .scene{
+body:not(.welcome-page) .scene {
   flex: none;
   width: min(100cqw, (100cqh - 6rem) * 16 / 9);
   max-width: none;
@@ -513,55 +513,55 @@ body:not(.welcome-page) .scene{
 
 /* the line under the picture keeps its place (even when empty) so the picture doesn't jump when the words change */
 body:not(.welcome-page) #room-message,
-body:not(.welcome-page) #door-message{
+body:not(.welcome-page) #door-message {
   flex: none;
   min-height: 1.4em;
   margin-top: 0.5rem;
 }
 
-body:not(.welcome-page) .controls{
+body:not(.welcome-page) .controls {
   flex: none;
   margin-top: 0.5rem;
   gap: 0.75rem;
 }
 
-body:not(.welcome-page) .button{
+body:not(.welcome-page) .button {
   padding: 0.5rem 1.4rem;
 }
 
 /* picture-less pages (the welcome page) just can't be taller than the screen either */
-body.welcome-page{
+body.welcome-page {
   min-height: 100vh;
 }
 
 /* welcome page on a short screen (a phone turned sideways): less space around the words so nothing scrolls */
-@media (max-height: 560px){
-  body.welcome-page{
+@media (max-height: 560px) {
+  body.welcome-page {
     height: 100dvh;
     min-height: 0;
     overflow: hidden;
   }
 
-  body.welcome-page main{
+  body.welcome-page main {
     padding: 0.75rem 1.5rem;
   }
 
-  .welcome{
+  .welcome {
     padding-top: 0.75rem;
   }
 
-  .welcome h1{
+  .welcome h1 {
     margin-bottom: 0.25rem;
     font-size: 1.6rem;
   }
 
-  .welcome .lead{
+  .welcome .lead {
     margin-bottom: 0.5rem;
     font-size: 0.95rem;
     line-height: 1.35;
   }
 
-  body.welcome-page footer{
+  body.welcome-page footer {
     padding: 0.5rem 1.5rem;
     font-size: 0.85rem;
   }
