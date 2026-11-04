@@ -511,11 +511,6 @@ body:not(.welcome-page) .scene{
   margin: 0;
 }
 
-/* the living room has no text or buttons under the picture, so it keeps almost all of the height */
-body.living-room .scene{
-  width: min(100cqw, (100cqh - 0.5rem) * 16 / 9);
-}
-
 /* the line under the picture keeps its place (even when empty) so the picture doesn't jump when the words change */
 body:not(.welcome-page) #room-message,
 body:not(.welcome-page) #door-message{
