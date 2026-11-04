@@ -44,7 +44,7 @@ var enterButton = document.querySelector("#enter-button");
 listenButton.addEventListener("click", function () {
 
   listenButton.disabled = true;
-  listenButton.textContent = "Listen to the welcome message (playing...)";
+  listenButton.textContent = "Welcome message is playing...";
 
   // try playing the message if there is an error catch it but show "come in" button anyway
   var playing = welcomeSound.play();

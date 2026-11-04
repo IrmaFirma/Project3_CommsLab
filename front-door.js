@@ -17,6 +17,8 @@ var ringButton = document.querySelector("#ring-button");
 var nextButton = document.querySelector("#next-button");
 var comeInButton = document.querySelector("#come-in-button");
 var comeInSound = document.querySelector("#come-in-sound");
+var comeInSound2 = document.querySelector("#come-in-sound2");
+
 
 
 // click this button to ring the doorbell
@@ -74,10 +76,18 @@ function showNextButton() {
 // this button plays the wife speaking to come inside house
 comeInButton.addEventListener("click", function () {
   comeInButton.disabled = true;
+  var playing2 = comeInSound2.play();
+  if (playing2) {
+    playing2.catch(showNextButton);
+  }
+});
+
+// play husband saying welcome
+comeInSound2.addEventListener("ended", function(){
   var playing = comeInSound.play();
   if (playing) {
     playing.catch(showNextButton);
   }
 });
 
-comeInSound.addEventListener("ended", showNextButton);
+comeInSound2.addEventListener("ended", showNextButton);
