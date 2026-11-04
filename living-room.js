@@ -39,6 +39,71 @@ function playSound(sound){
 }
 
 
+// ---------- the party starts as soon as the page opens ----------
+// used this documentation to learn about HTMLMediaElement.muted: https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/muted
+// browsers often block sound that starts by itself, so if that happens everything starts muted instead
+// (always allowed) and the sound turns on at the visitor's first click or key press
+
+// turn the sound on for every sound on the page
+function unmuteOnFirstTouch(){
+  allSounds.forEach(function (sound){
+    sound.muted = false;
+  });
+
+  // some browsers don't start the muted party at all, so start it (again) now. a click always
+  // counts as permission to play sound, and play() does nothing to a sound that is already playing
+  playSound(partySound);
+  playSound(jazzSound);
+
+  waitingForClick = false;
+  message.textContent = storyLine;
+
+  document.removeEventListener("pointerdown", unmuteOnFirstTouch);
+  document.removeEventListener("keydown", unmuteOnFirstTouch);
+}
+
+// if the browser blocked the sound: mute everything, start it anyway, and wait for a click or key press
+function startMuted(){
+  allSounds.forEach(function (sound){
+    sound.muted = true;
+  });
+
+  playSound(partySound);
+  playSound(jazzSound);
+
+  waitingForClick = true;
+  message.textContent = "Click anywhere for sound.";
+
+  document.addEventListener("pointerdown", unmuteOnFirstTouch);
+  document.addEventListener("keydown", unmuteOnFirstTouch);
+}
+
+// the party is the loudest thing in the room, the jazz sits quietly underneath it
+// (the jazz file is much louder than the party file, so it needs a low volume to stay underneath)
+partySound.volume = 0.9;
+jazzSound.volume = 0.15;
+glassesSound.volume = 0.8;
+
+// used this documentation to learn about HTMLMediaElement.play (it returns a Promise): https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play
+// play() hands back a Promise that fails if the browser blocks it. .catch() runs when it does
+var starting = partySound.play();
+
+if(starting){
+  starting.then(function (){
+    // the party could play, so the jazz can too
+    playSound(jazzSound);
+  }).catch(function (error){
+    // "NotAllowedError" means the browser blocked the sound. anything else means the file is missing or
+    // broken, so just carry on with the jazz
+    if(error.name === "NotAllowedError"){
+      startMuted();
+    }else{
+      playSound(jazzSound);
+    }
+  });
+}
+
+
 // ---------- nobody turns around, then the hallway ----------
 setTimeout(function () {
   say("Nobody turns around to greet you.");
