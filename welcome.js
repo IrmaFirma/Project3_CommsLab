@@ -9,7 +9,7 @@
 var backgroundSound = document.querySelector("#background-sound");
 var soundToggle = document.querySelector("#sound-toggle");
 
-backgroundSound.volume = 0.7;
+backgroundSound.volume = 0.5;
 
 // icon matches what is happening; sound can be on and off
 backgroundSound.addEventListener("play", function () {
@@ -44,7 +44,7 @@ var enterButton = document.querySelector("#enter-button");
 listenButton.addEventListener("click", function () {
 
   listenButton.disabled = true;
-  listenButton.textContent = " ";
+  listenButton.textContent = "Listen to the welcome message (playing...)";
 
   // try playing the message if there is an error catch it but show "come in" button anyway
   var playing = welcomeSound.play();

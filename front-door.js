@@ -4,9 +4,6 @@
 // Learned about timeout from https://developer.mozilla.org/en-US/docs/Web/API/Window/setTimeout
 // Read more about event listeners from https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
 
-
-// TODO: add the come-in sound and the come-in button
-
 // scenes
 var photoBefore = document.querySelector("#photo-before");
 var photoAfter = document.querySelector("#photo-after");
@@ -18,6 +15,8 @@ var message = document.querySelector("#door-message");
 var doorbellSound = document.querySelector("#doorbell-sound");
 var ringButton = document.querySelector("#ring-button");
 var nextButton = document.querySelector("#next-button");
+var comeInButton = document.querySelector("#come-in-button");
+var comeInSound = document.querySelector("#come-in-sound");
 
 
 // click this button to ring the doorbell
@@ -71,3 +70,14 @@ function showNextButton() {
   message.textContent = " ";
 
 }
+
+// this button plays the wife speaking to come inside house
+comeInButton.addEventListener("click", function () {
+  comeInButton.disabled = true;
+  var playing = comeInSound.play();
+  if (playing) {
+    playing.catch(showNextButton);
+  }
+});
+
+comeInSound.addEventListener("ended", showNextButton);

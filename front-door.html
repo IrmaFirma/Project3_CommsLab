@@ -34,7 +34,7 @@
   </header>
 
   <main>
-    <!-- scene: photo 1, then photo 2 (ringing), then a black screen, then the couple -->
+    <!-- scene: door photo1, door photo2 then black screen then the couple at the door -->
     <div class="scene">
       <img id="photo-before" src="assets/1.JPG">
       <img id="photo-after" src="assets/2.JPG" hidden>
@@ -48,12 +48,11 @@
 
     <p id="door-message">You are standing at the door.</p>
 
-    <!-- sounds (play when you click the buttons) -->
+    <!-- sounds -->
     <audio id="doorbell-sound" src="audio/doorbell.mp3"></audio>
+    <audio id="come-in-sound" src="audio/come-in.mp3"></audio>
 
-    <!-- TODO <audio id="come-in-sound" src="audio/come-in.mp3"></audio> -->
-
-    <!-- buttons: only one shows at a time -->
+    <!-- buttons -->
     <div class="controls">
       <button id="ring-button" class="button" type="button">Ring the doorbell</button>
       <button id="come-in-button" class="button" type="button" hidden>Play the greeting</button>
